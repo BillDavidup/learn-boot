@@ -74,9 +74,10 @@ public class DefaultController {
 
     // 手机号 https://github.com/VincentSit/ChinaMobilePhoneNumberRegex
     public static void regexTest3() {
-        String regex = "^(?:\\+?86)?1(?:3\\d{3}|5[^4\\D]\\d{2}|8\\d{3}|7(?:[235-8]\\d{2}|4(?:0\\d|1[0-2]|9\\d))|9[0-35-9]\\d{2}|66\\d{2})\\d{6}$";
+        String regex = "^(?:\\+?86)?[ ]?1(?:3\\d{3}|5[^4\\D]\\d{2}|8\\d{3}|7(?:[235-8]\\d{2}|4(?:0\\d|1[0-2]|9\\d))|9[0-35-9]\\d{2}|66\\d{2})\\d{6}$";
+        // String regex = "^(?:\\+?86)?[ ]?1\\d{10}";
         Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher("18500389754");
+        Matcher matcher = pattern.matcher("17801265844");
         boolean matches = matcher.matches();
         System.out.println("is match:" + matches);
     }
