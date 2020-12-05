@@ -1,7 +1,5 @@
-
+# 公共配置
 spring:
   profiles:
     # 制定激活的配置文件application-xxx.yml
-    active: test
-server:
-  port: 8082
+    active: dev

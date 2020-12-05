@@ -1,2 +1,9 @@
+# 线上环境
 server:
   port: 8082
+
+# 【配置中心】NACOS
+nacos:
+  config:
+    server-addr: 127.0.0.1:8848
+    namespace: 7f6205e4-02ac-4d9b-865d-ee101c5d33a0
