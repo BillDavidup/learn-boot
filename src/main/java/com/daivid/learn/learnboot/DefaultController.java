@@ -6,6 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
+import java.time.temporal.TemporalAdjuster;
+import java.time.temporal.TemporalAdjusters;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -30,6 +35,18 @@ public class DefaultController {
         regexTest();
         regexTest2();
         regexTest3();
+
+        Long seconds = getThisMonthDayBeginSecondsWithExpectedDayOfThisMonth(1);
+        Long seconds2 = getThisMonthDayBeginSecondsWithExpectedDayOfThisMonth(16);
+        Long seconds3 = getNextMonthFirstDayBeginSeconds();
+
+        System.out.println("seconds:" + seconds);
+        System.out.println("seconds2:" + seconds2);
+        System.out.println("seconds3:" + seconds3);
+        Calendar ca = Calendar.getInstance();
+        Integer maxDaysOfMonth = ca.getActualMaximum(Calendar.DAY_OF_MONTH);
+
+        System.out.println("month of last day:" + ca.getActualMaximum(Calendar.DAY_OF_MONTH));
 
     }
 
@@ -80,6 +97,25 @@ public class DefaultController {
         Matcher matcher = pattern.matcher("17801265844");
         boolean matches = matcher.matches();
         System.out.println("is match:" + matches);
+    }
+
+    public static Long getThisMonthDayBeginSecondsWithExpectedDayOfThisMonth(Integer expectedMonthOfDay) {
+        LocalDateTime nowLocalDateTime = LocalDateTime.now();
+        int thisYear = nowLocalDateTime.getYear();
+        int thisMonthValue = nowLocalDateTime.getMonthValue();
+        LocalDateTime expectedLocalDateTime = LocalDateTime.of(thisYear, thisMonthValue, expectedMonthOfDay, 0, 0, 0);
+        return expectedLocalDateTime.toInstant(ZoneOffset.of("+8")).toEpochMilli() / 1000;
+    }
+
+    public static Long getNextMonthFirstDayBeginSeconds() {
+        LocalDateTime now = LocalDateTime.now();
+        int thisYear = now.getYear();
+        int thisMonthValue = now.getMonthValue();
+        // dayOfMonth参数没啥用，指定了1
+        LocalDateTime tempLocalTime = LocalDateTime.of(thisYear, thisMonthValue, 1, 0, 0, 0);
+        LocalDateTime lastDayLocalDateTime = tempLocalTime.with(TemporalAdjusters.lastDayOfMonth());
+        LocalDateTime nextMonthFirstDayBeginLocalDateTime = lastDayLocalDateTime.plusDays(1);
+        return nextMonthFirstDayBeginLocalDateTime.toInstant(ZoneOffset.of("+8")).toEpochMilli() / 1000;
     }
 
 }
