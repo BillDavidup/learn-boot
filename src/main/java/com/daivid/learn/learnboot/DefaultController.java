@@ -10,8 +10,10 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.time.temporal.TemporalAdjuster;
 import java.time.temporal.TemporalAdjusters;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -47,6 +49,8 @@ public class DefaultController {
         Integer maxDaysOfMonth = ca.getActualMaximum(Calendar.DAY_OF_MONTH);
 
         System.out.println("month of last day:" + ca.getActualMaximum(Calendar.DAY_OF_MONTH));
+
+        testLongOfListContains();
 
     }
 
@@ -116,6 +120,15 @@ public class DefaultController {
         LocalDateTime lastDayLocalDateTime = tempLocalTime.with(TemporalAdjusters.lastDayOfMonth());
         LocalDateTime nextMonthFirstDayBeginLocalDateTime = lastDayLocalDateTime.plusDays(1);
         return nextMonthFirstDayBeginLocalDateTime.toInstant(ZoneOffset.of("+8")).toEpochMilli() / 1000;
+    }
+
+    public static void testLongOfListContains() {
+        List<Long> userSubjectIdList = new ArrayList<>();
+        Long l = new Long(1000);
+        System.out.println("l:" + l);
+        userSubjectIdList.add(l);
+        Long l2 = new Long(1000);
+        System.out.println("contains:" + userSubjectIdList.contains(l2));
     }
 
 }
