@@ -1,3 +1,7 @@
+### 各个环节统一配置文件
+# 服务端口号
+server:
+  port: 8082
 # 公共配置
 spring:
   profiles:

@@ -1,6 +1,4 @@
 # 预发环境
-server:
-  port: 8082
 
 # 【配置中心】NACOS
 nacos:
