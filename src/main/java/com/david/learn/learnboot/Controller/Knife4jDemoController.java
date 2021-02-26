@@ -1,5 +1,6 @@
 package com.david.learn.learnboot.Controller;
 
+import com.david.learn.learnboot.utils.result.ResultDTO;
 import com.david.learn.learnboot.vo.UserVO;
 import com.github.xiaoymin.knife4j.annotations.ApiOperationSupport;
 import com.github.xiaoymin.knife4j.annotations.ApiSort;
@@ -27,21 +28,22 @@ public class Knife4jDemoController {
     @ApiOperation(value = "获取用户信息接口", nickname = "根据用户ID获取用户相关信息") // Knife4j API文档接口信息
     @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "int") // Knife4j API文档参数定义
     @GetMapping("/user")
-    public UserVO getUser(@RequestParam Integer id) {
+    public ResultDTO<UserVO> getUser(@RequestParam Integer id) {
         UserVO userVO = new UserVO();
         userVO.setId(id);
         userVO.setName("管理员");
-        return userVO;
+        return ResultDTO.success(userVO);
     }
 
     @ApiOperationSupport(order = 2)
     @ApiOperation(value = "获取用户信息接口2", nickname = "根据用户ID获取用户相关信息")
     @ApiImplicitParam(name = "id", value = "用户ID", required = true, dataType = "int")
     @GetMapping("/user2")
-    public UserVO getUser2(@RequestParam Integer id) {
+    public ResultDTO<UserVO> getUser2(@RequestParam Integer id) {
         UserVO userVO = new UserVO();
         userVO.setId(id);
         userVO.setName("管理员2");
-        return userVO;
+        System.out.println(userVO);
+        return ResultDTO.success(userVO);
     }
 }
