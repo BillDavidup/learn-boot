@@ -8,7 +8,7 @@
         <version>2.3.3.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.daivid.learn</groupId>
+    <groupId>com.david.learn</groupId>
     <artifactId>learn-boot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>learn-boot</name>
@@ -55,6 +55,18 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- knife4j 接入STEP ①：引入Maven依赖 -->
+        <!-- swagger-bootstrap-ui 升级的knife4j Controller接口文档 -->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -93,7 +105,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <!-- 指定该Main Class为全局的唯一入口 -->
-                    <mainClass>com.daivid.learn.learnboot.LearnBootApplication</mainClass>
+                    <mainClass>com.david.learn.learnboot.LearnBootApplication</mainClass>
                     <layout>ZIP</layout>
                 </configuration>
                 <executions>

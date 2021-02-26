@@ -5,3 +5,11 @@ nacos:
   config:
     server-addr: 127.0.0.1:8848
     namespace: 7f6205e4-02ac-4d9b-865d-ee101c5d33a0
+# <!-- knife4j 接入STEP ③：配置文件开启Knife4j -->
+knife4j:
+  # 为了生产环境接口安全,需要屏蔽所有Swagger的相关资源,生产环境设置为true
+  production: true
+  enable: true
+  setting:
+    # 开启器分组，让@ApiSort(int序号)控制controller排序展示
+    enableGroup: true

@@ -1,4 +1,4 @@
-package com.daivid.learn.learnboot;
+package com.david.learn.learnboot;
 
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.daivid.learn.learnboot;
+package com.david.learn.learnboot;
 
 import com.alibaba.nacos.api.config.ConfigType;
 import com.alibaba.nacos.spring.context.annotation.config.NacosPropertySource;

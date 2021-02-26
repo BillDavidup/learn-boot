@@ -1,4 +1,4 @@
-package com.daivid.learn.learnboot;
+package com.david.learn.learnboot;
 
 import com.alibaba.nacos.api.config.annotation.NacosValue;
 import org.springframework.stereotype.Component;

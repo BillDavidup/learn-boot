@@ -7,3 +7,4 @@ spring:
   profiles:
     # 制定激活的配置文件application-xxx.yml
     active: dev
+
